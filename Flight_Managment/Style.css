@@ -1,0 +1,192 @@
+﻿body {
+    margin: 0;
+    padding: 0;
+    width: 100vw;
+    height: 100vh;
+}
+.input--style-5{
+    
+}
+.btn {
+    background-color: black;
+}
+.back {
+    background-image: url("image/pexels-photo-1531677.jpeg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.cover {
+    background: url("image/1.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.elements {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.intro {
+    width: 24vw;
+    height: 60vh;
+    box-shadow: black 0px 40px 70px;
+    border-radius: 30px;
+}
+.introS {
+    width: 24vw;
+    height: 80vh;
+    box-shadow: black 0px 40px 70px;
+    border-radius: 30px;
+}
+
+#Label1 {
+    display: block;
+    padding-top: 7vh;
+    padding-left: 7.9vw;
+    font-size: 6vw;
+    font-size: 8vh;
+    font-family: 'Leckerli One','Algerian';
+    text-shadow: black 0px 20px 20px;
+}
+
+#Label2 {
+    font-stretch: ultra-expanded;
+    display: block;
+    padding-top: 6vh;
+    padding-left: 7vw;
+    font-size: 6vw;
+    font-size: 8vh;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    text-shadow: black 0px 40px 40px;
+    color: beige;
+}
+#Label3 {
+    font-stretch: ultra-expanded;
+    display: block;
+    padding-top: 4vh;
+    padding-left: 2.5vw;
+    font-size: 5vw;
+    font-size: 7vh;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    text-shadow: black 0px 40px 40px;
+    color: beige;
+}
+
+.txt1 {
+    margin-top: 5vh;
+    margin-left: 2vw;
+}
+
+.txt2 {
+    margin-top: 6vh;
+    margin-left: 2vw;
+}
+
+.txt6 {
+    margin-top: 5vh;
+    margin-left: 2vw;
+}
+
+.txt7 {
+    margin-top: 6vh;
+    margin-left: 2vw;
+}
+
+.txt3 {
+    margin-top: 3vh;
+    margin-left: 2vw;
+}
+.txt4 {
+    margin-top: 3.5vh;
+    margin-left: 2vw;
+}
+.txt5 {
+    margin-top: 4vh;
+    margin-left: 2vw;
+}
+
+    .txt1[placeholder], .txt2[placeholder], .txt3[placeholder], .txt4[placeholder], .txt5[placeholder], .txt6[placeholder], .txt7[placeholder] {
+        font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        font-size: 1.9vw;
+        padding-left: 5vw;
+        padding-right: 5vw;
+    }
+.brt{
+    width:0px;
+    height:0px;
+
+    
+}
+
+.txtstyle {
+    width: 20vw;
+    height: 6vh;
+    border: 0;
+    border-radius: 6px;
+    background-color: rgba(252,251,251,0.80);
+    box-shadow: black 0px 30px 50px;
+}
+
+.btnstyle {
+    margin-top: 10vh;
+    width: 10vw;
+    height: 6vh;
+    margin-left: 1vw;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 1.8vw;
+    border: 0px;
+    color: black;
+    text-shadow: black 0px 30px 30px;
+    background-color: rgba(255,255,255,0.57);
+    border-radius: 10px;
+}
+
+    .btnstyle:hover {
+        background-color: transparent;
+        box-shadow: black 0px 90px 80px;
+        color: beige;
+    }
+.btn3 {
+    margin-top: 5vh;
+    width: 10vw;
+    height: 6vh;
+    margin-left: 7vw;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 1.8vw;
+    border: 0px;
+    color: black;
+    text-shadow: black 0px 30px 30px;
+    background-color: rgba(255,255,255,0.57);
+    border-radius: 10px;
+}
+.btn3:hover {
+    background-color: transparent;
+    box-shadow: black 0px 90px 80px;
+    color: beige;
+}
+
+iframe:focus {
+    outline: none;
+}
+
+iframe[seamless] {
+    display: block;
+}

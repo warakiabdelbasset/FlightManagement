@@ -1,0 +1,118 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="gest_aeroModelStoreContainer" CdmEntityContainer="gest_aeroEntities">
+    <EntitySetMapping Name="aeroports">
+      <EntityTypeMapping TypeName="gest_aeroModel.aeroport">
+        <MappingFragment StoreEntitySet="aeroport">
+          <ScalarProperty Name="num_aero" ColumnName="num_aero" />
+          <ScalarProperty Name="nom_aero" ColumnName="nom_aero" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="avions">
+      <EntityTypeMapping TypeName="gest_aeroModel.avion">
+        <MappingFragment StoreEntitySet="avion">
+          <ScalarProperty Name="num_av" ColumnName="num_av" />
+          <ScalarProperty Name="modele_av" ColumnName="modele_av" />
+          <ScalarProperty Name="capacite_av" ColumnName="capacite_av" />
+          <ScalarProperty Name="nbr_h_travail" ColumnName="nbr_h_travail" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="billets">
+      <EntityTypeMapping TypeName="gest_aeroModel.billet">
+        <MappingFragment StoreEntitySet="billet">
+          <ScalarProperty Name="num_place" ColumnName="num_place" />
+          <ScalarProperty Name="classe_siege" ColumnName="classe_siege" />
+          <ScalarProperty Name="num_resa" ColumnName="num_resa" />
+          <ScalarProperty Name="num_passport_psg" ColumnName="num_passport_psg" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="clients">
+      <EntityTypeMapping TypeName="gest_aeroModel.client">
+        <MappingFragment StoreEntitySet="client">
+          <ScalarProperty Name="num_cl" ColumnName="num_cl" />
+          <ScalarProperty Name="nom_cl" ColumnName="nom_cl" />
+          <ScalarProperty Name="prenom_cl" ColumnName="prenom_cl" />
+          <ScalarProperty Name="email_cl" ColumnName="email_cl" />
+          <ScalarProperty Name="mdp_cl" ColumnName="mdp_cl" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="lignes">
+      <EntityTypeMapping TypeName="gest_aeroModel.ligne">
+        <MappingFragment StoreEntitySet="ligne">
+          <ScalarProperty Name="num_l" ColumnName="num_l" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="passagers">
+      <EntityTypeMapping TypeName="gest_aeroModel.passager">
+        <MappingFragment StoreEntitySet="passager">
+          <ScalarProperty Name="num_passport" ColumnName="num_passport" />
+          <ScalarProperty Name="nom_psg" ColumnName="nom_psg" />
+          <ScalarProperty Name="prenom_psg" ColumnName="prenom_psg" />
+          <ScalarProperty Name="tel_psg" ColumnName="tel_psg" />
+          <ScalarProperty Name="date_naiss_psg" ColumnName="date_naiss_psg" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="pilotes">
+      <EntityTypeMapping TypeName="gest_aeroModel.pilote">
+        <MappingFragment StoreEntitySet="pilote">
+          <ScalarProperty Name="num_pil" ColumnName="num_pil" />
+          <ScalarProperty Name="nom_pil" ColumnName="nom_pil" />
+          <ScalarProperty Name="prenom_pil" ColumnName="prenom_pil" />
+          <ScalarProperty Name="tel_pil" ColumnName="tel_pil" />
+          <ScalarProperty Name="email_pil" ColumnName="email_pil" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="reservations">
+      <EntityTypeMapping TypeName="gest_aeroModel.reservation">
+        <MappingFragment StoreEntitySet="reservation">
+          <ScalarProperty Name="num_resa" ColumnName="num_resa" />
+          <ScalarProperty Name="date_resa" ColumnName="date_resa" />
+          <ScalarProperty Name="num_cl" ColumnName="num_cl" />
+          <ScalarProperty Name="num_user" ColumnName="num_user" />
+          <ScalarProperty Name="num_v" ColumnName="num_v" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="utilisateurs">
+      <EntityTypeMapping TypeName="gest_aeroModel.utilisateur">
+        <MappingFragment StoreEntitySet="utilisateur">
+          <ScalarProperty Name="num_user" ColumnName="num_user" />
+          <ScalarProperty Name="nom_user" ColumnName="nom_user" />
+          <ScalarProperty Name="prenom_user" ColumnName="prenom_user" />
+          <ScalarProperty Name="tel_user" ColumnName="tel_user" />
+          <ScalarProperty Name="email_user" ColumnName="email_user" />
+          <ScalarProperty Name="mdp_user" ColumnName="mdp_user" />
+          <ScalarProperty Name="role_user" ColumnName="role_user" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="vols">
+      <EntityTypeMapping TypeName="gest_aeroModel.vol">
+        <MappingFragment StoreEntitySet="vol">
+          <ScalarProperty Name="num_v" ColumnName="num_v" />
+          <ScalarProperty Name="aeroport_d" ColumnName="aeroport_d" />
+          <ScalarProperty Name="aeroport_a" ColumnName="aeroport_a" />
+          <ScalarProperty Name="num_pil" ColumnName="num_pil" />
+          <ScalarProperty Name="num_av" ColumnName="num_av" />
+          <ScalarProperty Name="date_d" ColumnName="date_d" />
+          <ScalarProperty Name="date_a" ColumnName="date_a" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="vol_de_ligne" TypeName="gest_aeroModel.vol_de_ligne" StoreEntitySet="vol_de_ligne">
+      <EndProperty Name="ligne">
+        <ScalarProperty Name="num_l" ColumnName="num_l" />
+      </EndProperty>
+      <EndProperty Name="vol">
+        <ScalarProperty Name="num_v" ColumnName="num_v" />
+      </EndProperty>
+    </AssociationSetMapping>
+  </EntityContainerMapping>
+</Mapping>

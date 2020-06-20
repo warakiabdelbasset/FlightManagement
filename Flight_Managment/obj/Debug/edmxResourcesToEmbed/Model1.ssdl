@@ -1,0 +1,295 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="gest_aeroModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="aeroport">
+    <Key>
+      <PropertyRef Name="num_aero" />
+    </Key>
+    <Property Name="num_aero" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nom_aero" Type="nchar" MaxLength="20" />
+  </EntityType>
+  <EntityType Name="avion">
+    <Key>
+      <PropertyRef Name="num_av" />
+    </Key>
+    <Property Name="num_av" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="modele_av" Type="nchar" MaxLength="20" />
+    <Property Name="capacite_av" Type="int" />
+    <Property Name="nbr_h_travail" Type="int" />
+  </EntityType>
+  <EntityType Name="billet">
+    <Key>
+      <PropertyRef Name="num_place" />
+    </Key>
+    <Property Name="num_place" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="classe_siege" Type="nchar" MaxLength="20" />
+    <Property Name="num_resa" Type="int" />
+    <Property Name="num_passport_psg" Type="nchar" MaxLength="20" />
+  </EntityType>
+  <EntityType Name="client">
+    <Key>
+      <PropertyRef Name="num_cl" />
+    </Key>
+    <Property Name="num_cl" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nom_cl" Type="nchar" MaxLength="20" />
+    <Property Name="prenom_cl" Type="nchar" MaxLength="20" />
+    <Property Name="email_cl" Type="nchar" MaxLength="50" />
+    <Property Name="mdp_cl" Type="nchar" MaxLength="20" />
+  </EntityType>
+  <EntityType Name="ligne">
+    <Key>
+      <PropertyRef Name="num_l" />
+    </Key>
+    <Property Name="num_l" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+  </EntityType>
+  <EntityType Name="passager">
+    <Key>
+      <PropertyRef Name="num_passport" />
+    </Key>
+    <Property Name="num_passport" Type="nchar" MaxLength="20" Nullable="false" />
+    <Property Name="nom_psg" Type="nchar" MaxLength="20" />
+    <Property Name="prenom_psg" Type="nchar" MaxLength="20" />
+    <Property Name="tel_psg" Type="nchar" MaxLength="20" />
+    <Property Name="date_naiss_psg" Type="datetime" />
+  </EntityType>
+  <EntityType Name="pilote">
+    <Key>
+      <PropertyRef Name="num_pil" />
+    </Key>
+    <Property Name="num_pil" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nom_pil" Type="nchar" MaxLength="20" />
+    <Property Name="prenom_pil" Type="nchar" MaxLength="20" />
+    <Property Name="tel_pil" Type="nchar" MaxLength="20" />
+    <Property Name="email_pil" Type="nchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="reservation">
+    <Key>
+      <PropertyRef Name="num_resa" />
+    </Key>
+    <Property Name="num_resa" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="date_resa" Type="datetime" />
+    <Property Name="num_cl" Type="int" />
+    <Property Name="num_user" Type="int" />
+    <Property Name="num_v" Type="int" />
+  </EntityType>
+  <EntityType Name="utilisateur">
+    <Key>
+      <PropertyRef Name="num_user" />
+    </Key>
+    <Property Name="num_user" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nom_user" Type="nchar" MaxLength="20" />
+    <Property Name="prenom_user" Type="nchar" MaxLength="20" />
+    <Property Name="tel_user" Type="nchar" MaxLength="20" />
+    <Property Name="email_user" Type="nchar" MaxLength="50" />
+    <Property Name="mdp_user" Type="nchar" MaxLength="20" />
+    <Property Name="role_user" Type="nchar" MaxLength="20" />
+  </EntityType>
+  <EntityType Name="vol">
+    <Key>
+      <PropertyRef Name="num_v" />
+    </Key>
+    <Property Name="num_v" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="aeroport_d" Type="int" />
+    <Property Name="aeroport_a" Type="int" />
+    <Property Name="num_pil" Type="int" />
+    <Property Name="num_av" Type="int" />
+    <Property Name="date_d" Type="datetime" />
+    <Property Name="date_a" Type="datetime" />
+  </EntityType>
+  <EntityType Name="vol_de_ligne">
+    <Key>
+      <PropertyRef Name="num_l" />
+      <PropertyRef Name="num_v" />
+    </Key>
+    <Property Name="num_l" Type="int" Nullable="false" />
+    <Property Name="num_v" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="FK__billet__num_pass__2D27B809">
+    <End Role="passager" Type="Self.passager" Multiplicity="0..1" />
+    <End Role="billet" Type="Self.billet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="passager">
+        <PropertyRef Name="num_passport" />
+      </Principal>
+      <Dependent Role="billet">
+        <PropertyRef Name="num_passport_psg" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__billet__num_resa__2C3393D0">
+    <End Role="reservation" Type="Self.reservation" Multiplicity="0..1" />
+    <End Role="billet" Type="Self.billet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="reservation">
+        <PropertyRef Name="num_resa" />
+      </Principal>
+      <Dependent Role="billet">
+        <PropertyRef Name="num_resa" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__reservati__num_c__276EDEB3">
+    <End Role="client" Type="Self.client" Multiplicity="0..1" />
+    <End Role="reservation" Type="Self.reservation" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="client">
+        <PropertyRef Name="num_cl" />
+      </Principal>
+      <Dependent Role="reservation">
+        <PropertyRef Name="num_cl" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__reservati__num_u__286302EC">
+    <End Role="utilisateur" Type="Self.utilisateur" Multiplicity="0..1" />
+    <End Role="reservation" Type="Self.reservation" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="utilisateur">
+        <PropertyRef Name="num_user" />
+      </Principal>
+      <Dependent Role="reservation">
+        <PropertyRef Name="num_user" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__reservati__num_v__29572725">
+    <End Role="vol" Type="Self.vol" Multiplicity="0..1" />
+    <End Role="reservation" Type="Self.reservation" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="vol">
+        <PropertyRef Name="num_v" />
+      </Principal>
+      <Dependent Role="reservation">
+        <PropertyRef Name="num_v" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__vol__aeroport_a__1ED998B2">
+    <End Role="aeroport" Type="Self.aeroport" Multiplicity="0..1" />
+    <End Role="vol" Type="Self.vol" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="aeroport">
+        <PropertyRef Name="num_aero" />
+      </Principal>
+      <Dependent Role="vol">
+        <PropertyRef Name="aeroport_a" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__vol__aeroport_d__1DE57479">
+    <End Role="aeroport" Type="Self.aeroport" Multiplicity="0..1" />
+    <End Role="vol" Type="Self.vol" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="aeroport">
+        <PropertyRef Name="num_aero" />
+      </Principal>
+      <Dependent Role="vol">
+        <PropertyRef Name="aeroport_d" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__vol__num_av__20C1E124">
+    <End Role="avion" Type="Self.avion" Multiplicity="0..1" />
+    <End Role="vol" Type="Self.vol" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="avion">
+        <PropertyRef Name="num_av" />
+      </Principal>
+      <Dependent Role="vol">
+        <PropertyRef Name="num_av" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__vol__num_pil__1FCDBCEB">
+    <End Role="pilote" Type="Self.pilote" Multiplicity="0..1" />
+    <End Role="vol" Type="Self.vol" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="pilote">
+        <PropertyRef Name="num_pil" />
+      </Principal>
+      <Dependent Role="vol">
+        <PropertyRef Name="num_pil" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__vol_de_li__num_l__239E4DCF">
+    <End Role="ligne" Type="Self.ligne" Multiplicity="1" />
+    <End Role="vol_de_ligne" Type="Self.vol_de_ligne" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ligne">
+        <PropertyRef Name="num_l" />
+      </Principal>
+      <Dependent Role="vol_de_ligne">
+        <PropertyRef Name="num_l" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__vol_de_li__num_v__24927208">
+    <End Role="vol" Type="Self.vol" Multiplicity="1" />
+    <End Role="vol_de_ligne" Type="Self.vol_de_ligne" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="vol">
+        <PropertyRef Name="num_v" />
+      </Principal>
+      <Dependent Role="vol_de_ligne">
+        <PropertyRef Name="num_v" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="gest_aeroModelStoreContainer">
+    <EntitySet Name="aeroport" EntityType="Self.aeroport" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="avion" EntityType="Self.avion" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="billet" EntityType="Self.billet" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="client" EntityType="Self.client" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ligne" EntityType="Self.ligne" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="passager" EntityType="Self.passager" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="pilote" EntityType="Self.pilote" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="reservation" EntityType="Self.reservation" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="utilisateur" EntityType="Self.utilisateur" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="vol" EntityType="Self.vol" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="vol_de_ligne" EntityType="Self.vol_de_ligne" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__billet__num_pass__2D27B809" Association="Self.FK__billet__num_pass__2D27B809">
+      <End Role="passager" EntitySet="passager" />
+      <End Role="billet" EntitySet="billet" />
+    </AssociationSet>
+    <AssociationSet Name="FK__billet__num_resa__2C3393D0" Association="Self.FK__billet__num_resa__2C3393D0">
+      <End Role="reservation" EntitySet="reservation" />
+      <End Role="billet" EntitySet="billet" />
+    </AssociationSet>
+    <AssociationSet Name="FK__reservati__num_c__276EDEB3" Association="Self.FK__reservati__num_c__276EDEB3">
+      <End Role="client" EntitySet="client" />
+      <End Role="reservation" EntitySet="reservation" />
+    </AssociationSet>
+    <AssociationSet Name="FK__reservati__num_u__286302EC" Association="Self.FK__reservati__num_u__286302EC">
+      <End Role="utilisateur" EntitySet="utilisateur" />
+      <End Role="reservation" EntitySet="reservation" />
+    </AssociationSet>
+    <AssociationSet Name="FK__reservati__num_v__29572725" Association="Self.FK__reservati__num_v__29572725">
+      <End Role="vol" EntitySet="vol" />
+      <End Role="reservation" EntitySet="reservation" />
+    </AssociationSet>
+    <AssociationSet Name="FK__vol__aeroport_a__1ED998B2" Association="Self.FK__vol__aeroport_a__1ED998B2">
+      <End Role="aeroport" EntitySet="aeroport" />
+      <End Role="vol" EntitySet="vol" />
+    </AssociationSet>
+    <AssociationSet Name="FK__vol__aeroport_d__1DE57479" Association="Self.FK__vol__aeroport_d__1DE57479">
+      <End Role="aeroport" EntitySet="aeroport" />
+      <End Role="vol" EntitySet="vol" />
+    </AssociationSet>
+    <AssociationSet Name="FK__vol__num_av__20C1E124" Association="Self.FK__vol__num_av__20C1E124">
+      <End Role="avion" EntitySet="avion" />
+      <End Role="vol" EntitySet="vol" />
+    </AssociationSet>
+    <AssociationSet Name="FK__vol__num_pil__1FCDBCEB" Association="Self.FK__vol__num_pil__1FCDBCEB">
+      <End Role="pilote" EntitySet="pilote" />
+      <End Role="vol" EntitySet="vol" />
+    </AssociationSet>
+    <AssociationSet Name="FK__vol_de_li__num_l__239E4DCF" Association="Self.FK__vol_de_li__num_l__239E4DCF">
+      <End Role="ligne" EntitySet="ligne" />
+      <End Role="vol_de_ligne" EntitySet="vol_de_ligne" />
+    </AssociationSet>
+    <AssociationSet Name="FK__vol_de_li__num_v__24927208" Association="Self.FK__vol_de_li__num_v__24927208">
+      <End Role="vol" EntitySet="vol" />
+      <End Role="vol_de_ligne" EntitySet="vol_de_ligne" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

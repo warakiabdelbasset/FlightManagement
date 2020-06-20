@@ -1,0 +1,35 @@
+﻿.boxsha {
+    -webkit-box-shadow: -3px 0px 27px 2px rgba(0,0,0,0.24);
+    -moz-box-shadow: -3px 0px 27px 2px rgba(0,0,0,0.24);
+    box-shadow: -3px 0px 27px 2px rgba(0, 0, 0, 0.5);
+    width: 70vw;
+    margin-top: 7vh;
+}
+.center {
+    text-align: center;
+}
+body{
+    width:100%;
+    height:100%;
+}
+.row{
+    margin-left:50px;
+    margin-right:50px;
+}
+.zoom {
+   
+ 
+    transition: transform .2s; /* Animation */
+}
+
+    .zoom:hover {
+        transform: scale(1.1); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+       
+    }
+.pad {
+    padding-left: 50px;
+    padding-right: 50px;
+}
+.margbot{
+    margin-bottom:-20px;
+}
