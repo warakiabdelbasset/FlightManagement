@@ -12,13 +12,17 @@ The goal of this project consists of developing a flight booking and management 
 Here we see the use case diagram, as it shows, the user can check the available flights, so far he is only a visitor, After choosing a flight to book, a Login interface is displayed to connect before continuing the reservation process, This is on the customer side,
 On the admin side, the administrator has the right to manage flights such as add flights, delete and modify.
 
-![](Flight_Managment/image/usecase.jpg)
+<p align="center">
+  <img src="https://github.com/warakiabdelbasset/FlightManagement/blob/master/Flight_Managment/image/usecase.jpg">
+</p>
 
 ## Class Diagram
 
 So, As shown in the following class diagram, the application allows the user who has the role of client in the user class to make a reservation which will make him a "Passenger" identified by his passport number and also generate a ticket for him to print. This reservation will be entered under a defined flight which is also identified by its number. Each flight is assigned to one and only one pilot, one and only one plane also, contains one or more lines (with line we mean the small flights between each two stopovers), and of course a departure airport and another arrival must also be defined.
 
-![](Flight_Managment/image/class.jpg)
+<p align="center">
+  <img src="https://github.com/warakiabdelbasset/FlightManagement/blob/master/Flight_Managment/image/class.jpg">
+</p>
 
 # Production
 
@@ -56,11 +60,17 @@ private string Encrypt(string clearText)
 # Simulation
 ## Login_Page
 
-![](Flight_Managment/image/2.jpg)
+<p align="center">
+  <img src="https://github.com/warakiabdelbasset/FlightManagement/blob/master/Flight_Managment/image/2.jpg">
+</p>
 ## Dashboard Admin
 
-![](Flight_Managment/image/1.jpg)
+<p align="center">
+  <img src="https://github.com/warakiabdelbasset/FlightManagement/blob/master/Flight_Managment/image/1.jpg">
+</p>
 
 ## Booking User
 
-![](Flight_Managment/image/3.jpg)
+<p align="center">
+  <img src="https://github.com/warakiabdelbasset/FlightManagement/blob/master/Flight_Managment/image/3.jpg">
+</p>
